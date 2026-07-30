@@ -13,6 +13,10 @@ jobs:
       - name: Download BLACK_VLESS_RUS.txt
         run: curl -sL https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/main/BLACK_VLESS_RUS.txt -o BLACK_VLESS_RUS.txt
       
+      - name: Replace header line
+        run: |
+          sed -i 's|# For more info and VPN-configs - visit: www.github.com/igareck/vpn-configs-for-russia|#free vpn vless white lists|' BLACK_VLESS_RUS.txt
+      
       - name: Commit and Push
         run: |
           git config user.name "github-actions"
